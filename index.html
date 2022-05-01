@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Calculadora de IMC e IMGR</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <p>Calculadora de IMC e IMGR</p>
+        </div>
+        <form id="frm" method="get" action="#">
+            <div class="content">
+                <div>
+                    <fieldset class="gender">
+                        <label for="radio-male"><span class="title-bold-500">Homem</span>
+                            <input type="radio" name="gender" value="male" id="radio-male" required>
+                        </label>
+                        <label for="radio-female"><span class="title-bold-500">Mulher</span>
+                            <input type="radio" name="gender" value="female" id="radio-female" required>
+                        </label>
+                    </fieldset>
+                </div>
+
+                <div>
+                    <fieldset class="boxCalc">
+                        <label for="height" class="boxCalcLabel">Altura</label>
+                        <input class="boxCalcInput" type="number" min="0" id="height"
+                            placeholder="Informe a altura em cm" required>
+
+                        <label for="weight" class="boxCalcLabel">Peso</label>
+                        <input class="boxCalcInput" type="number" min="0" id="weight" placeholder="Informe o peso"
+                            required>
+
+                        <label for="abs-circ" class="boxCalcLabel">Circunferência Abdominal</label>
+                        <input class="boxCalcInput" type="number" min="0" id="absCirc"
+                            placeholder="Circunferência em cm" value="0" required>&nbsp; <a
+                            title="Informe a circunferência abdominal em centímetros para o cálculo do Índice de Massa Gorda Relativa"><img
+                                src="./assets/img/info.png"></a>
+                    </fieldset>
+                </div>
+                <div class="btnCalc">
+                    <input type="submit" value="Calcular" id="btnCalc"">
+                </div>
+                <div class=" btnReset">
+                    <input type="reset" value="Limpar Campos" id="btnReset"">
+                </div>
+                <div>
+                    <fieldset class=" boxCalcResult">
+                    <legend>Resultado do cálculo</legend>
+                    <p>Seu IMC: <span class="result-values" id="imc">0</span> <br> <span class="text-result-values"
+                            id="text-result-imc"></span> &nbsp;&nbsp; <a href="#info-IMC"><img
+                                src="./assets/img/info.png"></a>
+                    </p>
+                    <br><br>
+                    <p>Seu IMGR: <span class="result-values" id="imgr">0 %</span> <br> <span class="text-result-values"
+                            id="text-result-imgr"></span> &nbsp;&nbsp; <a href="#info-IMGR"><img
+                                src="./assets/img/info.png"></a>
+                    </p>
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+<script src="./assets/scripts.js"></script>
+
+</html>
