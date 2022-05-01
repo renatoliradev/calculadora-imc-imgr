@@ -39,7 +39,7 @@
 
                         <label for="abs-circ" class="boxCalcLabel">Circunferência Abdominal</label>
                         <input class="boxCalcInput" type="number" min="0" id="absCirc"
-                            placeholder="Circunferência em cm" value="0" required>&nbsp; <a
+                            placeholder="Circunferência em cm" value="0" required>&nbsp; <a id="info-abs-circ"
                             title="Informe a circunferência abdominal em centímetros para o cálculo do Índice de Massa Gorda Relativa"><img
                                 src="./assets/img/info.png"></a>
                     </fieldset>
@@ -53,22 +53,28 @@
                 <div>
                     <fieldset class=" boxCalcResult">
                     <legend>Resultado do cálculo</legend>
-                    <p>Seu IMC: <span class="result-values" id="imc">0</span> <br> <span class="text-result-values"
-                            id="text-result-imc"></span> &nbsp;&nbsp; <a href="#info-IMC"><img
+                    <p>Seu IMC: <span class="result-values" id="imc">0</span>&nbsp;&nbsp;
+                        <a id="info-IMC" title="Clique para ver mais informações sobre o cálculo do IMC"> <img
                                 src="./assets/img/info.png"></a>
+                        <br>
+                        <span class="text-result-values" id="text-result-imc"></span>
                     </p>
                     <br><br>
-                    <p>Seu IMGR: <span class="result-values" id="imgr">0 %</span> <br> <span class="text-result-values"
-                            id="text-result-imgr"></span> &nbsp;&nbsp; <a href="#info-IMGR"><img
-                                src="./assets/img/info.png"></a>
+                    <p>Seu IMGR: <span class="result-values" id="imgr">0 %</span> &nbsp;&nbsp;<a id="info-IMGR"
+                            title="Clique para ver mais informações sobre o cálculo do IMGR"><img
+                                src="./assets/img/info.png"></a><br>
+                    <p> Classif. % Gordura: &nbsp;<span class="text-result-values" id="text-result-imgr"></span> </p>
+
+                    <p> Índice de Risco: &nbsp;<span class="text-result-values" id="text-result-abs-circ"></span>
+                    </p>
                     </p>
                     </fieldset>
                 </div>
             </div>
         </form>
-
     </div>
 </body>
 <script src="./assets/scripts.js"></script>
+<script src="./assets/sweealert.js"></script>
 
 </html>
