@@ -33,15 +33,16 @@
                 <fieldset class="boxCalc">
                     <label for="height" class="boxCalcLabel">Altura</label>
                     <input class="boxCalcInput" type="number" min="0" id="height" placeholder="Informe a altura em cm"
-                        onkeydown="javascript:EnterTab('weight',event)">
+                        onkeypress="javascript:onlyNumber();" onkeydown="javascript:EnterTab('weight',event)">
 
                     <label for="weight" class="boxCalcLabel">Peso</label>
                     <input class="boxCalcInput" type="number" min="0" id="weight" placeholder="Informe o peso"
-                        onkeydown="javascript:EnterTab('absCirc',event)">
+                        onkeypress="javascript:onlyNumber();" onkeydown="javascript:EnterTab('absCirc',event)">
 
                     <label for="abs-circ" class="boxCalcLabel">Circunferência Abdominal</label>
                     <input class="boxCalcInput" type="number" min="0" id="absCirc" placeholder="Circunferência em cm"
-                        onkeydown="javascript:EnterTab('btnCalc',event)">&nbsp; <a id="info-abs-circ"
+                        onkeypress="javascript:onlyNumber();" onkeydown="javascript:EnterTab('btnCalc',event)">&nbsp; <a
+                        id="info-abs-circ"
                         title="Informe a circunferência abdominal em centímetros para o cálculo do Índice de Massa Gorda Relativa"><img
                             src="./assets/img/info.png"></a>
                 </fieldset>
