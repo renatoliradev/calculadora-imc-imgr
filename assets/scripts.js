@@ -56,7 +56,8 @@ const calculatedResults = () => {
     let calculatedFemaleIMGR = (76 - (20 * (height.value / absCirc.value)))
 
     if (gender === 'male') {
-        if (calculatedMaleIMGR < 2) { textResultIMGR.innerHTML = 'Abaixo do mínimo' }
+        if (absCirc.value <= 0) { textResultIMGR.innerHTML = '****' }
+        else if (calculatedMaleIMGR < 2) { textResultIMGR.innerHTML = 'Abaixo do mínimo' }
         else if (calculatedMaleIMGR <= 6) { textResultIMGR.innerHTML = 'Gordura Essencial' }
         else if (calculatedMaleIMGR <= 14) { textResultIMGR.innerHTML = 'Atletas' }
         else if (calculatedMaleIMGR <= 18) { textResultIMGR.innerHTML = 'Fitness' }
@@ -64,16 +65,22 @@ const calculatedResults = () => {
         else if (calculatedMaleIMGR >= 25) { textResultIMGR.innerHTML = 'Obesidade' }
         else { textResultIMGR.innerHTML = 'Erro no cálculo! Tente novamente.' }
 
-        document.querySelector('#imgr').innerHTML = `${calculatedMaleIMGR.toFixed(1)} %`
+        if (absCirc.value <= 0) {
+            document.querySelector('#imgr').innerHTML = `Não calculado`
+        } else {
+            document.querySelector('#imgr').innerHTML = `${calculatedMaleIMGR.toFixed(1)} %`
+        }
 
-        if (absCirc.value <= 90) { textResultAbsCirc.innerHTML = 'Normal' }
+        if (absCirc.value <= 0) { textResultAbsCirc.innerHTML = '****' }
+        else if (absCirc.value <= 90) { textResultAbsCirc.innerHTML = 'Normal' }
         else if (absCirc.value < 94) { textResultAbsCirc.innerHTML = 'Médio' }
         else if (absCirc.value < 102) { textResultAbsCirc.innerHTML = 'Alto' }
         else if (absCirc.value >= 102) { textResultAbsCirc.innerHTML = 'Altíssimo' }
         else { textResultAbsCirc.innerHTML = '-------' }
     }
     else if (gender === 'female') {
-        if (calculatedFemaleIMGR < 10) { textResultIMGR.innerHTML = 'Abaixo do mínimo' }
+        if (absCirc.value <= 0) { textResultIMGR.innerHTML = '****' }
+        else if (calculatedFemaleIMGR < 10) { textResultIMGR.innerHTML = 'Abaixo do mínimo' }
         else if (calculatedFemaleIMGR <= 14) { textResultIMGR.innerHTML = 'Gordura Essencial' }
         else if (calculatedFemaleIMGR <= 21) { textResultIMGR.innerHTML = 'Atletas' }
         else if (calculatedFemaleIMGR <= 25) { textResultIMGR.innerHTML = 'Fitness' }
@@ -81,9 +88,14 @@ const calculatedResults = () => {
         else if (calculatedFemaleIMGR >= 32) { textResultIMGR.innerHTML = 'Obesidade' }
         else { textResultIMGR.innerHTML = 'Erro no cálculo! Tente novamente.' }
 
-        document.querySelector('#imgr').innerHTML = `${calculatedFemaleIMGR.toFixed(1)} %`
+        if (absCirc.value <= 0) {
+            document.querySelector('#imgr').innerHTML = `Não calculado`
+        } else {
+            document.querySelector('#imgr').innerHTML = `${calculatedFemaleIMGR.toFixed(1)} %`
+        }
 
-        if (absCirc.value <= 80) { textResultAbsCirc.innerHTML = 'Normal' }
+        if (absCirc.value <= 0) { textResultAbsCirc.innerHTML = '****' }
+        else if (absCirc.value <= 80) { textResultAbsCirc.innerHTML = 'Normal' }
         else if (absCirc.value < 84) { textResultAbsCirc.innerHTML = 'Médio' }
         else if (absCirc.value < 88) { textResultAbsCirc.innerHTML = 'Alto' }
         else if (absCirc.value >= 88) { textResultAbsCirc.innerHTML = 'Altíssimo' }
