@@ -14,67 +14,69 @@
         <div class="title">
             <p>Calculadora de IMC e IMGR</p>
         </div>
-        <form id="frm" method="get" action="#">
-            <div class="content">
-                <div>
-                    <fieldset class="gender">
-                        <label for="radio-male"><span class="title-bold-500">Homem</span>
-                            <input type="radio" name="gender" value="male" id="radio-male" required>
-                        </label>
-                        <label for="radio-female"><span class="title-bold-500">Mulher</span>
-                            <input type="radio" name="gender" value="female" id="radio-female" required>
-                        </label>
-                    </fieldset>
-                </div>
 
-                <div>
-                    <fieldset class="boxCalc">
-                        <label for="height" class="boxCalcLabel">Altura</label>
-                        <input class="boxCalcInput" type="number" min="0" id="height"
-                            placeholder="Informe a altura em cm" required>
+        <div class="content">
+            <div>
+                <fieldset class="gender">
+                    <label for="radio-male"><span class="title-bold-500">Homem</span>
+                        <input type="radio" name="gender" value="male" id="radio-male"
+                            onkeydown="javascript:EnterTab('height',event)">
+                    </label>
+                    <label for="radio-female"><span class="title-bold-500">Mulher</span>
+                        <input type="radio" name="gender" value="female" id="radio-female"
+                            onkeydown="javascript:EnterTab('height',event)">
+                    </label>
+                </fieldset>
+            </div>
 
-                        <label for="weight" class="boxCalcLabel">Peso</label>
-                        <input class="boxCalcInput" type="number" min="0" id="weight" placeholder="Informe o peso"
-                            required>
+            <div>
+                <fieldset class="boxCalc">
+                    <label for="height" class="boxCalcLabel">Altura</label>
+                    <input class="boxCalcInput" type="number" min="0" id="height" placeholder="Informe a altura em cm"
+                        onkeydown="javascript:EnterTab('weight',event)">
 
-                        <label for="abs-circ" class="boxCalcLabel">Circunferência Abdominal</label>
-                        <input class="boxCalcInput" type="number" min="0" id="absCirc"
-                            placeholder="Circunferência em cm" value="0" required>&nbsp; <a id="info-abs-circ"
-                            title="Informe a circunferência abdominal em centímetros para o cálculo do Índice de Massa Gorda Relativa"><img
-                                src="./assets/img/info.png"></a>
-                    </fieldset>
-                </div>
-                <div class="btnCalc">
-                    <input type="submit" value="Calcular" id="btnCalc"">
-                </div>
-                <div class=" btnReset">
-                    <input type="reset" value="Limpar Campos" id="btnReset"">
-                </div>
+                    <label for="weight" class="boxCalcLabel">Peso</label>
+                    <input class="boxCalcInput" type="number" min="0" id="weight" placeholder="Informe o peso"
+                        onkeydown="javascript:EnterTab('absCirc',event)">
+
+                    <label for="abs-circ" class="boxCalcLabel">Circunferência Abdominal</label>
+                    <input class="boxCalcInput" type="number" min="0" id="absCirc" placeholder="Circunferência em cm"
+                        onkeydown="javascript:EnterTab('btnCalc',event)">&nbsp; <a id="info-abs-circ"
+                        title="Informe a circunferência abdominal em centímetros para o cálculo do Índice de Massa Gorda Relativa"><img
+                            src="./assets/img/info.png"></a>
+                </fieldset>
+            </div>
+            <div class="btnCalc">
+                <input type="button" value="Calcular" id="btnCalc"">
+            </div>
                 <div>
                     <fieldset class=" boxCalcResult">
-                    <legend>Resultado do cálculo</legend>
-                    <p>Seu IMC: <span class="result-values" id="imc">0</span>&nbsp;&nbsp;
-                        <a id="info-IMC" title="Clique para ver mais informações sobre o cálculo do IMC"> <img
-                                src="./assets/img/info.png"></a>
-                        <br>
-                        <span class="text-result-values" id="text-result-imc"></span>
-                    </p>
-                    <br><br>
-                    <p>Seu IMGR: <span class="result-values" id="imgr">0 %</span> &nbsp;&nbsp;<a id="info-IMGR"
-                            title="Clique para ver mais informações sobre o cálculo do IMGR"><img
-                                src="./assets/img/info.png"></a><br>
-                    <p> Classif. % Gordura: &nbsp;<span class="text-result-values" id="text-result-imgr"></span> </p>
+                <legend>Resultado do cálculo</legend>
+                <p>Seu IMC: <span class="result-values" id="imc">0</span>&nbsp;&nbsp;
+                    <a id="info-IMC" title="Clique para ver mais informações sobre o cálculo do IMC"> <img
+                            src="./assets/img/info.png"></a>
+                    <br>
+                    <span class="text-result-values" id="text-result-imc"></span>
+                </p>
+                <br><br>
+                <p>Seu IMGR: <span class="result-values" id="imgr">0 %</span> &nbsp;&nbsp;<a id="info-IMGR"
+                        title="Clique para ver mais informações sobre o cálculo do IMGR"><img
+                            src="./assets/img/info.png"></a><br>
+                <p> Classif. % Gordura: &nbsp;<span class="text-result-values" id="text-result-imgr"></span> </p>
 
-                    <p> Índice de Risco: &nbsp;<span class="text-result-values" id="text-result-abs-circ"></span>
-                    </p>
-                    </p>
-                    </fieldset>
-                </div>
+                <p> Índice de Risco: &nbsp;<span class="text-result-values" id="text-result-abs-circ"></span>
+                </p>
+                </p>
+                </fieldset>
             </div>
-        </form>
+
+            <div class=" btnReset">
+                <input type="reset" value="Limpar Campos" id="btnReset"">
+            </div>
+        </div>
     </div>
 </body>
-<script src="./assets/scripts.js"></script>
-<script src="./assets/sweealert.js"></script>
+<script src=" ./assets/scripts.js"></script>
+                <script src="./assets/sweealert.js"></script>
 
 </html>

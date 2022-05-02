@@ -106,6 +106,7 @@ fieldset>input {
 }
 
 .boxCalcResult {
+    display: none;
     width: 100%;
     margin: 40px 0 20px;
     padding: 20px;
@@ -157,8 +158,8 @@ fieldset>input {
 
 #btnReset {
     display: none;
-    width: 90%;
-    padding: 20px;
+    width: 60%;
+    padding: 10px;
     background: red;
     border-radius: 20px;
     color: #F4F4F4;

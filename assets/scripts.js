@@ -1,10 +1,39 @@
-let height = document.querySelector('#height')
-let weight = document.querySelector('#weight')
-let absCirc = document.querySelector('#absCirc')
+// document.getElementsByTagNameNS('input[name="gender"]:checked')
 
 
 const calculatedResults = () => {
-    let gender = document.querySelector('input[name="gender"]:checked').value;
+    let height = document.querySelector('#height')
+    let weight = document.querySelector('#weight')
+    let absCirc = document.querySelector('#absCirc')
+    let gender
+
+    if (document.querySelector('#radio-male').checked) {
+        gender = 'male'
+    }
+    else if (document.querySelector('#radio-female').checked) {
+        gender = 'female'
+    }
+    else {
+        alert('Selecione o gênero.')
+        document.querySelector('#radio-male').focus()
+        return false
+    }
+
+    if (height.value <= 0) {
+        alert('Informe a Altura')
+        height.focus()
+        return false
+    }
+    else if (weight.value <= 0) {
+        alert('Informe o peso.')
+        weight.focus()
+        return false
+    }
+    else if (absCirc.value <= 0) {
+        absCirc.value = 0
+    }
+
+
     //#region IMC    
     let textResultIMC = document.querySelector('#text-result-imc')
     let squaredHeight = height.value / 100
@@ -62,13 +91,15 @@ const calculatedResults = () => {
     }
     //#endregion
     if (calculatedIMC > 0) {
-        document.querySelector('#btnCalc').style.display = 'none';
+        document.querySelector('.boxCalcResult').style.display = 'block';
+        document.querySelector('#btnCalc').value = 'Calcular novamente ?';
         document.querySelector('#btnReset').style.display = 'block';
 
         const Toast = Swal.mixin({
-            toast: true,
+            toast: false,
             position: 'center',
-            timer: 2000,
+            showConfirmButton: false,
+            timer: 1500,
             timerProgressBar: true
         })
 
@@ -79,15 +110,38 @@ const calculatedResults = () => {
     }
 }
 
-const hideBtnReset = () => {
-    document.querySelector('#btnCalc').style.display = 'block';
+const btnReset = () => {
+    document.querySelector('#btnCalc').value = 'Calcular';
     document.querySelector('#btnReset').style.display = 'none';
+    document.querySelector('.boxCalcResult').style.display = 'none';
+
+    document.querySelector('#radio-male').checked = false
+    document.querySelector('#radio-female').checked = false
+    document.querySelector('#height').value = ''
+    document.querySelector('#weight').value = ''
+    document.querySelector('#absCirc').value = ''
+
 
     document.querySelector('#imc').innerHTML = '0'
     document.querySelector('#imgr').innerHTML = '0 %'
     document.querySelector('#text-result-imc').innerHTML = ''
     document.querySelector('#text-result-imgr').innerHTML = ''
     document.querySelector('#text-result-abs-circ').innerHTML = ''
+}
+
+function alert(title) {
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+    })
+
+    Toast.fire({
+        icon: 'warning',
+        title: title
+    })
 }
 
 function showInfoAbsCirc() {
@@ -118,9 +172,10 @@ document.querySelector('#info-abs-circ').addEventListener('click', showInfoAbsCi
 document.querySelector('#info-IMC').addEventListener('click', showInfoIMC)
 document.querySelector('#info-IMGR').addEventListener('click', showInfoIMGR)
 document.querySelector('#btnCalc').addEventListener('click', calculatedResults)
-document.querySelector('#btnReset').addEventListener('click', hideBtnReset)
+document.querySelector('#btnReset').addEventListener('click', btnReset)
 
-const form = document.querySelector('#frm')
-form.addEventListener('submit', e => {
-    e.preventDefault()
-})
+function EnterTab(InputId, Evento) {
+    if (Evento.keyCode == 13) {
+        document.getElementById(InputId).focus();
+    }
+}
